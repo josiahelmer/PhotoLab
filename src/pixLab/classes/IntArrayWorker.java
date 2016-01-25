@@ -46,6 +46,8 @@ public class IntArrayWorker
     return total;
   }
   
+  
+  
   /**
    * Method to fill with an increasing count
    */
@@ -98,6 +100,25 @@ public class IntArrayWorker
           matrix[row][col] = 3;
       }
     }
+  }
+  
+  public int getCount (int number)
+  {
+	  int totalnumber = 0;
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  for(int col = 0; col < matrix[row].length; col++)
+		  {
+			  if(matrix[row][col]==(number))
+			  {
+					totalnumber++; 
+			  }
+ 
+		  }
+	  }
+	  
+	  return totalnumber;
+	  
   }
  
 }
