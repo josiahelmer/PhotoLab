@@ -89,8 +89,8 @@ public class Picture extends SimplePicture
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
-    Pixel[][] pixels = this.getPixels2D();
-    for (Pixel[] rowArray : pixels)
+    Pixel[][] bluepixels = this.getPixels2D();
+    for (Pixel[] rowArray : bluepixels)
     {
       for (Pixel pixelObj : rowArray)
       {
@@ -98,18 +98,32 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void moreGreen()
+  {
+	  Pixel [][] greenPixels = this.getPixels2D();
+	  for (int row = 500; row < greenPixels.length; row++)
+	  {
+		  for(int col = 0; col < greenPixels[100]. length; col++)
+		  {
+			  Pixel currentPixel = greenPixels[row][col];
+			  currentPixel.setGreen(100);
+			  
+			  greenPixels[row][col].setGreen(100);
+		  }
+	  }
+  }
   
-  public void zeroRed()
+  public void moreRed()
   {
 	  Pixel[][] redPixels = this.getPixels2D();
 	  for (int row = 0; row < redPixels.length; row++)
 	  {
-		  for(int col = 0; col < redPixels[0]. length; col++)
+		  for(int col = 915; col < redPixels[100]. length; col++)
 		  {
 			  Pixel currentPixel = redPixels[row][col];
-			  currentPixel.setRed(0);
+			  currentPixel.setRed(100);
 			  
-			  redPixels[row][col].setRed(0);
+			  redPixels[row][col].setRed(100);
 		  }
 	  }
   }
@@ -133,6 +147,61 @@ public class Picture extends SimplePicture
       }
     } 
   }
+  public void randomChange()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel current : row)
+		  {
+			  int randomScale = (int)(Math.random() * 5);
+			  int plusOrMinus = (int)(Math.random() * 2);
+			  if(plusOrMinus > 0)
+			  {
+				  current.setRed((current.getRed()+randomScale) % 256);
+				  current.setGreen((current.getGreen()+randomScale) % 256);
+				  current.setBlue((current.getBlue()+randomScale) % 256);
+			  }
+			  else
+			  {
+				  current.setRed((current.getRed() - randomScale) % 256);
+				  current.setGreen((current.getGreen() - randomScale) % 256);
+				  current.setBlue((current.getBlue() - randomScale) % 256);
+			  }
+		  }
+	  }
+  }
+  public void randomColor()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel current : row)
+		  {
+			  int randomred = (int)(Math.random() * 256);
+			  int randogreen = (int)(Math.random() * 256);
+			  int randomBlue = (int)(Math.random() * 256);
+		  }
+	  }
+
+  }
+  public void mirrorVerticalRightToLeft()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int width = pixels[0].length;
+	  for(int row = 0 ; row < pixels.length; row++)
+	  {
+		  for (int col = pixels[0].length -1; col > width / 2; col--)
+		  {
+			  rightPixel = pixels[row][col];
+			  leftPixel = pixels[row][ (width / 2) - (col - width/ 2 )];
+			  leftPixel.setColor(rightPixel.getColor());
+		  }
+	  }
+  }
+
   
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
@@ -239,10 +308,16 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture seagull = new Picture("seagull.jpg");
-    seagull.explore();
-    seagull.zeroRed();
-    seagull.explore();
+    Picture Bioshock = new Picture("bioshock.jpg");
+    Bioshock.explore();
+    Bioshock.moreRed();
+    Bioshock.moreGreen();
+    Bioshock.mirrorVerticalRightToLeft();
+    Bioshock.randomColor();
+    Bioshock.createCollage();
+    Bioshock.explore();
+    
+
   }
   
 } // this } is the end of class Picture, put all new methods before this

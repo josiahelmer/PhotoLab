@@ -21,10 +21,27 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("bioshock.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+  
+  public static void testRandomColor()
+  {
+	  Picture randomBio = new Picture("caterpillar.jpg");
+	  randomBio.explore();
+	  randomBio.randomColor();
+	  randomBio.explore();
+	  
+  }
+  
+  public static void testmirrorVerticalRightToLeft()
+  {
+	  Picture bioshock = new Picture("bioshock.jpg");
+	  bioshock.explore();
+	  bioshock.mirrorVerticalRightToLeft();
+	  bioshock.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -59,14 +76,16 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
+	//testRandomColor();
+    //testMirrorVertical();
+	  testmirrorVerticalRightToLeft();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
