@@ -261,8 +261,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("grumpyvaultboy.jpg");
+    Picture flower2 = new Picture("VaultBoy.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -313,7 +313,6 @@ public class Picture extends SimplePicture
     Bioshock.moreRed();
     Bioshock.moreGreen();
     Bioshock.mirrorVerticalRightToLeft();
-    Bioshock.randomColor();
     Bioshock.createCollage();
     Bioshock.explore();
     
