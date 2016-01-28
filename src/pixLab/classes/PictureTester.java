@@ -14,19 +14,32 @@ public class PictureTester
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    beach.zeroBlue();
     beach.explore();
   }
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("bioshock.jpg");
-    caterpillar.explore();
-    caterpillar.mirrorVertical();
-    caterpillar.explore();
+    Picture bioshock = new Picture("bioshock.jpg");
+    bioshock.explore();
+    bioshock.mirrorVertical();
+    bioshock.explore();
+  }
+  public static void testMirrorHorizontal()
+  {
+    Picture bioshock = new Picture("bioshock.jpg");
+    bioshock.explore();
+    bioshock.mirrorHorizontal();
+    bioshock.explore();
   }
   
+  public static void testMirrorHorizontalBottomToTop()
+  {
+    Picture bioshock = new Picture("bioshock.jpg");
+    bioshock.explore();
+    bioshock.mirrorHorizontal();
+    bioshock.explore();
+  }
   public static void testRandomColor()
   {
 	  Picture randomBio = new Picture("caterpillar.jpg");
@@ -85,7 +98,8 @@ public class PictureTester
     //testFixUnderwater();
 	//testRandomColor();
     //testMirrorVertical();
-	  testmirrorVerticalRightToLeft();
+	//testmirrorVerticalRightToLeft();
+	  testMirrorHorizontal();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
