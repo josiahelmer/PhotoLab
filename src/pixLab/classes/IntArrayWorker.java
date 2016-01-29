@@ -120,5 +120,35 @@ public class IntArrayWorker
 	  return totalnumber;
 	  
   }
+  public int getLargest()
+  {
+	  int largest = -1;
+	  for(int[] row : matrix)
+	  {
+		  for(int i : row)
+		  {
+			  if(i>largest)
+			  {
+				  largest = i;
+			  }
+		  }
+	  }
+	  return largest;
+  }
+  public int getColTotal(int colLook)
+  {
+	  int coltotal = 0;
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  for(int col = 0; col < matrix[row].length; col++)
+		  {
+			  if(col == colLook)
+			  {
+				  coltotal+=matrix[row][col];
+			  }
+		  }
+	  }
+	  return coltotal;
+  }
  
 }

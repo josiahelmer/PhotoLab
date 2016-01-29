@@ -393,7 +393,6 @@ public class Picture extends SimplePicture
   {
     Picture Bioshock = new Picture("bioshock.jpg");
     Bioshock.explore();
-    //Bioshock.mirrorVertical();
     //Bioshock.keepOnlyRed();
     //Bioshock.keepOnlyGreen();
     //Bioshock.keepOnlyBlue();

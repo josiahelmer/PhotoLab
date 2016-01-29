@@ -37,7 +37,7 @@ public class PictureTester
   {
     Picture bioshock = new Picture("bioshock.jpg");
     bioshock.explore();
-    bioshock.mirrorHorizontal();
+    bioshock.mirrorHorizontalBottomToTop();
     bioshock.explore();
   }
   public static void testRandomColor()
