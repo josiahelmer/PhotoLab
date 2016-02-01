@@ -85,6 +85,17 @@ public class Picture extends SimplePicture
     return output;
     
   }
+  public void zeroBlue()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels)
+	  {
+		  for (Pixel pixelObj : rowArray)
+		  {
+			  pixelObj.setBlue(0);
+		  }
+	  }
+  }
   
   public void moreBlue()
   {
@@ -309,6 +320,36 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void mirrorArms()
+  {
+	  int leftarm = 193;
+	  Pixel lefttopPixel = null;
+	  Pixel leftbottomPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  for (int row = 158; row < leftarm; row++)
+	  {
+		  for (int col = 103; col < 170; col++)
+		  {
+			  lefttopPixel = pixels[row][col];
+			  leftbottomPixel = pixels[leftarm - row + leftarm][col];
+			  leftbottomPixel.setColor(lefttopPixel.getColor());
+		  }
+	  }
+	  int rightarm = 198;
+	  Pixel righttopPixel = null;
+	  Pixel rightbottomPixel = null;
+	  
+	  for (int row = 171; row < rightarm; row++)
+	  {
+		  for (int col = 239; col < 294; col++)
+		  {
+			  righttopPixel = pixels[row][col];
+			  rightbottomPixel = pixels[rightarm - row + rightarm][col];
+			  rightbottomPixel.setColor(righttopPixel.getColor());
+		  }
+	  }	  
+  }
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -391,14 +432,15 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture Bioshock = new Picture("bioshock.jpg");
+    Picture Bioshock = new Picture("snowman.jpg");
     Bioshock.explore();
     //Bioshock.keepOnlyRed();
     //Bioshock.keepOnlyGreen();
     //Bioshock.keepOnlyBlue();
-    //Bioshock.mirrorVerticalRightToLeft();
     //Bioshock.mirrorHorizontal();
     //Bioshock.mirrorHorizontalBottomToTop();
+    //Bioshock.mirrorTemple();
+    Bioshock.mirrorArms();
     Bioshock.explore();
     
 
